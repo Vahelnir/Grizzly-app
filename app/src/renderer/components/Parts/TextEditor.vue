@@ -29,7 +29,7 @@ export default {
     },
     computed: {
         note: function () {
-          return this.$store.getters.activeNote
+            return this.$store.getters.activeNote
         }
     },
     methods: {

@@ -6,8 +6,8 @@
 </template>
 
 <script>
-  import Sidebar from './LandingPage/Sidebar'
-  import TextEditor from './LandingPage/TextEditor'
+  import Sidebar from './Parts/Sidebar'
+  import TextEditor from './Parts/TextEditor'
 
   export default {
     name: 'landing-page',
