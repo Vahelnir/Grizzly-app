@@ -1,19 +1,24 @@
 <template >
     <div @keyup.ctrl.83="save" class="textarea">
         <div class="texteditor">
-            <p>Titre</p>
-            <div contentEditable="true" class="title" @input="updateNoteTitle">
+            <div class="titlearea">
+                <h1 class="indicator">h1 </h1>
+            <div contentEditable="true" class="note-title" @input="updateNoteTitle">
                 {{ note[0].title }}
+            </div>
             </div>
             <div contentEditable="true" class="text" @input="updateNoteContent">
                 {{ note[0].content }}
             </div>
-            <p>Tags: (separated by comma)</p>
-            <div contentEditable="true" class="tags" @input="updateNoteTag">
-                {{ note[0].tags.toString() }}
+            <div class="tagarea">
+                <p>Tags: (separated by comma) (temporary)</p>
+                <div contentEditable="true" class="tags" @input="updateNoteTag">
+                    {{ note[0].tags.toString() }}
+                </div>
+                <button @click="deleteNote">Delete</button>
+                <button @click="save">Save</button>
             </div>
         </div>
-        <button @click="deleteNote">Delete</button>
     </div>
 </template>
 
@@ -76,5 +81,36 @@ export default {
     .textarea {
         height: 100vh;
         width: 100%;
+        padding: 15px;
+    }
+
+    .note-title {
+        font-size: 25px;
+        font-weight: bold;
+        color: #4e4e4e;
+        padding-left: 5px;
+    }
+
+    .titlearea {
+        display: flex;
+        align-items: center;
+    }
+
+    .titlearea > .indicator {
+        color: #e1e1e1;
+        font-size: 16px;
+    }
+
+    .text {
+        font-weight: normal;
+    }
+
+    .tagarea {
+        border-top: 1px solid #e1e1e1;
+        position: absolute;
+        bottom: 0px;
+        left: 400px;
+        min-width: calc(100% - 400px);
+        padding: 15px;
     }
 </style>
