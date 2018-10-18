@@ -32,7 +32,7 @@ const actions = {
       })
   },
   fetchFromTag({ commit }, {tagName}) {
-    Axios.get(`http://localhost:3000/note/${tagName}`)
+    return Axios.get(`http://localhost:3000/note/${tagName}`)
     .then(res => {
       const data = res.data;
       commit('FETCH_FROM_TAG', { data })

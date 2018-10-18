@@ -38,6 +38,9 @@
     created: function () {
       this.$store.dispatch('fetchTags')
     },
+    mounted: function () {
+
+    },
     methods: {
       fetchTag: function(tagName) {
         this.activeTagName = tagName;
@@ -49,7 +52,12 @@
       },
       createNote: function () {
         const tagName = this.activeTagName;
-        this.$store.dispatch('createNote', { tagName })
+        this.$store.dispatch('createNote', { tagName }).then(() => {
+          console.log('1')
+          console.log(this.notes)
+          this.fetchTag(this.activeTagName);
+          this.$forceUpdate();
+        })
       }
     }
   }
@@ -95,6 +103,8 @@
   .notes { 
     border-right: 1px solid #e1e1e1;
     height: 100vh;
+    max-height: 100vh;
+    overflow-y: auto;
     min-width: 250px;
     width: 250px;
   }
@@ -114,5 +124,9 @@
   .addnote-btn {
     margin-top: 15px;
     width: 100%;
+  }
+
+  .activenote {
+    background: #111;
   }
 </style>
