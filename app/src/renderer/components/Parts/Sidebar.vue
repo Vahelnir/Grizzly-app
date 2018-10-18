@@ -53,9 +53,7 @@
       createNote: function () {
         const tagName = this.activeTagName;
         this.$store.dispatch('createNote', { tagName }).then(() => {
-          console.log('1')
-          console.log(this.notes)
-          this.fetchTag(this.activeTagName);
+          this.fetchTag(this.activeTagName)
           this.$forceUpdate();
         })
       }

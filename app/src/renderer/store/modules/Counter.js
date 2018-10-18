@@ -69,10 +69,11 @@ const actions = {
       tags: [tagName]
     }
     console.log(tagName)
-    Axios.post('http://localhost:3000/note/', data)
+    return Axios.post('http://localhost:3000/note/', data)
     .then(res => {
       console.log(data)
         commit('SET_ACTIVE_NOTE', { data })
+        commit('FETCH_FROM_TAG', { tagName })
         console.log(res)
         return res.data;
       })
