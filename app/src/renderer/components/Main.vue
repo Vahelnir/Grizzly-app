@@ -53,4 +53,13 @@
     border-radius: 2px;
   }
 
+::-webkit-scrollbar {
+    width: 5px;
+}
+ 
+ 
+::-webkit-scrollbar-thumb {
+    background: rgb(216, 216, 216); 
+}
+
 </style>
