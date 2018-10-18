@@ -8,6 +8,7 @@
       </ul>
     </div>
     <div class="notes">
+      <input class="searchinput" type="text" placeholder="searching">
       <ul class="taglist" id="tag">
         <li @click="fetchNoteContent(note._id)" class="note" v-for="note in notes">
           {{ note.title }} <br>
@@ -100,6 +101,14 @@
 
   .sharp {
     color: #505050;
+  }
+  
+  .searchinput {
+    margin: 15px 0 0 15px;
+    width: 85%;
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #e1e1e1;
   }
 
   .addnote-btn {
