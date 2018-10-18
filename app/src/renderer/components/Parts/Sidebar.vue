@@ -2,7 +2,7 @@
   <div class="d-flex">
     <div class="dark-bg">
       <ul class="taglist" id="tag">
-        <li @click="fetchTag(tag)" class="tag" v-for="tag in tags">
+        <li @click="fetchTag(tag)" class="tag" v-for="tag in this.$store.getters.tag">
           <span class="sharp"># </span> {{ tag }}
         </li>
       </ul>
@@ -10,7 +10,7 @@
     <div class="notes">
       <input class="searchinput" type="text" placeholder="searching">
       <ul class="taglist" id="tag">
-        <li @click="fetchNoteContent(note._id)" class="note" v-for="note in notes">
+        <li @click="fetchNoteContent(note._id)" class="note" v-for="note in this.$store.getters.note">
           {{ note.title }} <br>
           <p class="note-desc">{{ note.content.substring(0, 20) }}...</p> 
         </li>
@@ -21,17 +21,19 @@
 </template>
 
 <script>
+
+  import { mapState } from 'vuex'
+
   export default {
     data() {
       return {
-        activeTagName: ''
       }
     },
     computed: {
-        tags: function () {
-          return this.$store.getters.tag
+        tags () {
+          return this.$store.getters.tag;
         },
-        notes: function () {
+        notes () {
           return this.$store.getters.note
         }
     },
@@ -45,6 +47,7 @@
       fetchTag: function(tagName) {
         this.activeTagName = tagName;
         console.log(this.activeTagName)
+        this.$store.dispatch('setActiveTag', { tagName })
         this.$store.dispatch('fetchFromTag', { tagName })
       },
       fetchNoteContent: function(noteID) {

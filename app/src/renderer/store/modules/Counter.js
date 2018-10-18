@@ -3,7 +3,8 @@ import Axios from 'axios';
 const state = {
   tagList: [],
   notesFromTags: [],
-  activeNote: []
+  activeNote: [],
+  activeTagName: ''
 }
 
 const mutations = {
@@ -15,6 +16,9 @@ const mutations = {
   },
   SET_ACTIVE_NOTE(state, { data }) {
     state.activeNote = data;
+  },
+  SET_ACTIVE_TAG(state, { tagName }) {
+    state.activeTagName = tagName;
   }
 }
 
@@ -82,15 +86,21 @@ const actions = {
         return null;
       })
   },
+  setActiveTag({ commit }, { tagName }) {
+    commit('SET_ACTIVE_TAG', { tagName })
+  },
   deleteCurrentNote({ commit }, { _id }) {
-    return Axios.delete(`http://localhost:3000/note/${_id}`)
-    .then( () => {
-      console.log('deleted')
+    const tagName = state.activeTagName;
+
+    Axios.delete(`http://localhost:3000/note/${_id}`)
+    .then(res => {
+      console.log('es')
     })
     .catch(err => {
       console.log(err);
-      return null;
+      return err;
     })  
+    return commit('FETCH_FROM_TAG', { tagName })
   }
 }
 
@@ -103,6 +113,9 @@ const getters = {
   },
   activeNote: state => {
     return state.activeNote
+  },
+  activeTag: state => {
+    return state.activeTagName
   }
 }
 

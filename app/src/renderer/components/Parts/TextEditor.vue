@@ -24,6 +24,7 @@
 
 <script>
 export default {
+
     data() {
         return {
             modifiedNote : {},
@@ -72,6 +73,7 @@ export default {
         deleteNote: function () {
             const _id = this.note[0]._id
             this.$store.dispatch('deleteCurrentNote', { _id })
+            setTimeout(this.$forceUpdate(), 1000);
         }
     }
 }
