@@ -82,15 +82,14 @@ const actions = {
       })
   },
   deleteCurrentNote({ commit }, { _id }) {
-    Axios.delete(`http://localhost:3000/note/${_id}`)
-    .then(res => {
-        commit('SET_ACTIVE_NOTE', { data })
-        return res.data;
-      })
-      .catch(err => {
-        console.log(err)
-        return null;
-      })
+    return Axios.delete(`http://localhost:3000/note/${_id}`)
+    .then( () => {
+      console.log('deleted')
+    })
+    .catch(err => {
+      console.log(err);
+      return null;
+    })  
   }
 }
 

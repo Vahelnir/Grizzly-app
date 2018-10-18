@@ -70,7 +70,7 @@ export default {
             this.modifiedNoteTitle = ev.target.innerText;
         },
         deleteNote: function () {
-            let _id = this.note._id
+            const _id = this.note[0]._id
             this.$store.dispatch('deleteCurrentNote', { _id })
         }
     }
