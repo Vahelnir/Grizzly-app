@@ -2,7 +2,7 @@
   <div class="d-flex">
     <div class="dark-bg">
       <ul class="taglist" id="tag">
-        <li @click="fetchTag(tag)" class="tag" v-for="tag in this.$store.getters.tag">
+        <li @click="fetchTag(tag); selected = index" class="tag" :class="{highlight:index == selected}" v-for="(tag, index) in this.$store.getters.tag">
           <span class="sharp"># </span> {{ tag }}
         </li>
       </ul>
@@ -10,7 +10,7 @@
     <div class="notes">
       <input class="searchinput" type="text" placeholder="searching">
       <ul class="taglist" id="tag">
-        <li @click="fetchNoteContent(note._id)" class="note" v-for="note in this.$store.getters.note">
+        <li @click="fetchNoteContent(note._id); noteSelected = index" class="note" :class="{noteHighlight:index == noteSelected}" v-for="(note, index) in this.$store.getters.note">
           {{ note.title }} <br>
           <p class="note-desc">{{ note.content.substring(0, 20) }}...</p> 
         </li>
@@ -22,26 +22,17 @@
 
 <script>
 
-  import { mapState } from 'vuex'
-
   export default {
     data() {
       return {
+        selected: undefined,
+        noteSelected: undefined
       }
-    },
-    computed: {
-        tags () {
-          return this.$store.getters.tag;
-        },
-        notes () {
-          return this.$store.getters.note
-        }
     },
     created: function () {
       this.$store.dispatch('fetchTags')
     },
     mounted: function () {
-
     },
     methods: {
       fetchTag: function(tagName) {
@@ -127,7 +118,11 @@
     width: 100%;
   }
 
-  .activenote {
+  .highlight {
     background: #111;
+  }
+
+  .noteHighlight {
+    border-left: 5px solid #2d7ac2;
   }
 </style>
