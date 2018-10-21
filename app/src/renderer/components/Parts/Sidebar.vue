@@ -119,10 +119,12 @@
   }
 
   .highlight {
-    background: #111;
+    color:#a0a0a0;
   }
 
   .noteHighlight {
     border-left: 5px solid #2d7ac2;
+    position: relative;
+    left: -5px;
   }
 </style>
