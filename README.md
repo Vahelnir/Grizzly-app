@@ -4,7 +4,6 @@
 ![Presentation](https://raw.githubusercontent.com/lveteau/Grizzly-app/master/screen/app.png)
 
 ## Features
----
 - Written in simple and plain JavaScript. Easy to use, easy to contribute.
 - No installation necessary
 - User Friendly
@@ -12,18 +11,16 @@
 - Did I say that it work everywhere, even on FreeBSD ?
 
 ## Setup / How to launch
----
 
 **Please be aware, it's a development version and not suitable for personal use right now.**
 
 There is two parts: The server and the client.
 
-#### Requierements:
-    - NodeJs (The more is up to date, the better it is)
+#### Requirements:
+    - NodeJs (The more is it up to date, the better it is)
     - MongoDB (Again, latest version available)
   
 ### Setup the server
----
 
 ### Installation
 
