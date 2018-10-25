@@ -62,4 +62,8 @@
     background: rgb(216, 216, 216); 
 }
 
+.hidden { 
+  visibility: hidden;
+}
+
 </style>

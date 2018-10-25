@@ -1,5 +1,6 @@
 <template>
   <div class="d-flex">
+    <probleme-box ref="pbb" class="hidden"></probleme-box>
     <div class="dark-bg">
       <ul class="taglist" id="tag">
         <li @click="fetchTag(tag); selected = index" class="tag" :class="{highlight:index == selected}" v-for="(tag, index) in this.$store.getters.tag">
@@ -22,15 +23,24 @@
 
 <script>
 
+  import ProblemeBox from '../Box/ProblemeBox';
+
   export default {
+    components: { ProblemeBox },
     data() {
       return {
         selected: undefined,
-        noteSelected: undefined
+        noteSelected: undefined,
+        secondBeforeTimeout: 2
       }
     },
     created: function () {
-      this.$store.dispatch('fetchTags')
+      this.$store.dispatch('fetchTags');
+      setTimeout(() => {
+        if (this.$store.getters.tag.length === 0) {
+          this.$refs.pbb.$el.className = 'box';
+        }
+      }, this.secondBeforeTimeout * 1000)
     },
     mounted: function () {
     },
