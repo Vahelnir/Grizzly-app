@@ -57,15 +57,15 @@ Right now, I don't impose you some template, simply make a new branch with an ex
 
 ### Todolist:
 
-- Correct refresh when update/delete
-- Be able to create a note without the needs of already having one
-- Better tag management system (same as it is right now but stylized ?)
-- User management, be able to have multiple protected user on the same server instance
-- Respect api url convention 
-- Remove the alt menu
-- Some settings page (we'll need vue router), to change:
-    - database url
-    - username
-    - user profile picture ?
-    - password
-- About page
+- [ ] Correct refresh when update/delete
+- [ ] Be able to create a note without the needs of already having one
+- [ ] Better tag management system (same as it is right now but stylized ?)
+- [ ] User management, be able to have multiple protected user on the same server instance
+- [ ] Respect api url convention 
+- [ ] Remove the alt menu
+- [ ] Some settings page (we'll need vue router), to change:
+    - [ ] database url
+    - [ ] username
+    - [ ] user profile picture ?
+    - [ ] password
+- [ ] About page
