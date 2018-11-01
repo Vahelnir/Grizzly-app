@@ -44,8 +44,8 @@
 
   button {
     border: none;
-    background: #2d7ac2;
-    border-bottom: 1px solid #226099;
+    background: #44883e;
+    border-bottom: 1px solid #2f5e2a;
     padding: 5px 10px 5px 10px;
     cursor: pointer;
     color: #fafafa;

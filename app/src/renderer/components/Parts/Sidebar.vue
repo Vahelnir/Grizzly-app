@@ -133,7 +133,7 @@
   }
 
   .noteHighlight {
-    border-left: 5px solid #2d7ac2;
+    border-left: 5px solid #44883e;
     position: relative;
     left: -5px;
   }
